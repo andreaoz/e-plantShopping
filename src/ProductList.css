@@ -12,7 +12,7 @@ body {
 
 /* Navbar */
 .navbar {
-    background-color: #4CAF50;
+    background-color: #A471A8;
     color: #fff!important;
     padding: 15px;
     display: flex;
@@ -250,3 +250,10 @@ body {
         text-align: center; /* Align text to the center */
       }
   }
+
+  .centered-container {
+  display: flex;
+  justify-content: center;   /* centra horizontalmente */
+  align-items: center;       /* centra verticalmente */
+  text-align: justify;       /* justifica el texto */
+}
