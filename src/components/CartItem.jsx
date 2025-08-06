@@ -73,7 +73,6 @@ const CartItem = ({ onContinueShopping }) => {
                     <button className="cart-item-button cart-item-button-inc" onClick={() => handleIncrement(item)}>+</button>
                   </div>  
                 </div>
-
                 <div className='justified'>
                   <div className="cart-item-cost">{item.cost}</div>
                   {/*<div className="cart-item-total">Total: ${calculateTotalCost(item)}</div>*/}

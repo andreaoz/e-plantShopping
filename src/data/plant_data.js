@@ -85,7 +85,7 @@
             category: "Insect Repellent Plants",
             plants: [
                 {
-                    name: "oregano",
+                    name: "Oregano",
                     image: "https://cdn.pixabay.com/photo/2015/05/30/21/20/oregano-790702_1280.jpg",
                     description: "The oregano plants contains compounds that can deter certain insects.",
                     cost: "$10"

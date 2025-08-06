@@ -120,25 +120,25 @@ const handlePlantsClick = (e) => {
             </div>
         </div>
         {!showCart? (
+    <div>   
+        <div className='filter-section'>
+            <h3> Filter </h3>
+            <select 
+                className='category-filter' 
+                name="category" 
+                id="plant_category" 
+                onChange={(e) => filterByCategory(e.target.value)}
+                defaultValue={""}
+            >
+            <option className="filter-item" value="" disabled hidden>Category</option>
+            <option className="filter-item" value="All">All Categories</option>
+                {plantsArray.map((cat) => (
+                    <option className="filter-item" key={cat.category} value={cat.category}>{cat.category}</option>
+                ))}
+            </select>
+        </div>
+
         <div className="product-grid">
-            <br></br>
-            <div className='filter-section'>
-                <select 
-                    className='category-filter' 
-                    name="category" 
-                    id="plant_category" 
-                    onChange={(e) => filterByCategory(e.target.value)}
-                    defaultValue={""}
-                >
-                <option value="" disabled hidden>Category</option>
-                <option value="All">All Categories</option>
-                    {plantsArray.map((cat) => (
-                        <option key={cat.category} value={cat.category}>{cat.category}</option>
-                    ))}
-                </select>
-            </div>
-
-
             {filteredCategories.map((item)=>
             <div className='mainCategoryDiv'> 
                 <div className="product-list">
@@ -153,8 +153,8 @@ const handlePlantsClick = (e) => {
                 </div>
             </div>)}
 
-
         </div>
+    </div>
  ) :  (
     <CartItem onContinueShopping={handleContinueShopping}/>
 )}
