@@ -7,15 +7,21 @@ import plantsArray from '../data/plant_data';
 
 function ProductList(props) {
     const [showCart, setShowCart] = useState(false); 
+    const [filteredCategories, setFilteredCategories] = useState(plantsArray);
+    const [allCategories, setAllCategories] = useState(plantsArray);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     const [cart, setCart] = useState([]); // State to store the items added to the cart
+    
     const dispatch = useDispatch();
     const cartItems=useSelector(state => state.cart.items);
+
     console.log(cartItems);
     // setCart(cartItems);
     useEffect(() => {
         
     }, []);
+
+
     const alreadyInCart = (itemName) => {
         return cartItems.some((item) => item.name === itemName);
     }
@@ -26,6 +32,18 @@ function ProductList(props) {
     const totalItems = () => {
         return cartItems.reduce((total, item) => total + item.quantity, 0);
     }
+
+    const filterByCategory = (selectedCategory) => {
+        if (selectedCategory === "All") {
+        setFilteredCategories(allCategories);
+        } else {
+        const filtered = allCategories.filter(c => 
+            c.category === selectedCategory
+        );
+        setFilteredCategories(filtered);
+        }
+    };
+    console.log(filteredCategories);
     
     const styleObj = {
         backgroundColor: '#59265fa9',
@@ -104,23 +122,35 @@ const handlePlantsClick = (e) => {
         {!showCart? (
         <div className="product-grid">
             <br></br>
-            {plantsArray.map((item)=>
-            <div className='mainCategoryDiv'> 
-            {/*jfsjnf
-            <div className='centered-container'>
-               <h1>{item.category}</h1>   
+            <div className='filter-section'>
+                <select 
+                    className='category-filter' 
+                    name="category" 
+                    id="plant_category" 
+                    onChange={(e) => filterByCategory(e.target.value)}
+                    defaultValue={""}
+                >
+                <option value="" disabled hidden>Category</option>
+                <option value="All">All Categories</option>
+                    {plantsArray.map((cat) => (
+                        <option key={cat.category} value={cat.category}>{cat.category}</option>
+                    ))}
+                </select>
             </div>
-           */}
-            <div className="product-list">
-            {item.plants.map((plant)=>
-                <div className='product-card'>
-                    <img className='product-image' src={plant.image} alt={plant.name} />
-                    <h2>{plant.name}</h2>
-                    <p className='description-plant'>{plant.description}</p>
-                    <p className='product-price'>{plant.cost}</p>
-                    <button style={{backgroundColor:alreadyInCart(plant.name)?"gray":"#ac53cfe3"}} disabled={alreadyInCart(plant.name)? true:false} onClick={()=>handleAddToCart({name:plant.name,cost:plant.cost,image:plant.image})} className='product-button'>Add to Cart</button>
-                </div>)}
-                 </div>
+
+
+            {filteredCategories.map((item)=>
+            <div className='mainCategoryDiv'> 
+                <div className="product-list">
+                {item.plants.map((plant)=>
+                    <div className='product-card'>
+                        <img className='product-image' src={plant.image} alt={plant.name} />
+                        <h2>{plant.name}</h2>
+                        <p className='description-plant'>{plant.description}</p>
+                        <p className='product-price'>{plant.cost}</p>
+                        <button style={{backgroundColor:alreadyInCart(plant.name)?"gray":"#ac53cfe3"}} disabled={alreadyInCart(plant.name)? true:false} onClick={()=>handleAddToCart({name:plant.name,cost:plant.cost,image:plant.image})} className='product-button'>Add to Cart</button>
+                    </div>)}
+                </div>
             </div>)}
 
 
