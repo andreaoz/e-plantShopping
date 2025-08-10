@@ -1,10 +1,9 @@
-/* LandingPage.css */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   overflow: hidden;
-  font-family:     'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .landing-page {
@@ -21,36 +20,34 @@
   width: 100%;
   height: 100%;
   background-image: url('../assets/a-beautiful-garden1.jpg');
-  background-size: 100% 100%;
+  background-size:cover; /* Cambiar de 100% 100% a cover para mejor responsividad */
   background-position: center;
   filter: brightness(0.8);
 }
+
 .content {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   width: 100vw;
- top: 100px;
   backdrop-filter: blur(3px);
   background-color: rgba(0,0,0,0.5);
-  gap: 20px;
+  position: relative; /* Agregar para mejor posicionamiento */
 }
 
 .landing_content {
- margin-top: 430px;
-  margin-left: 100px;
-  transform: translate(-50%, -50%);
+  /* Remover márgenes fijos y usar flexbox del contenedor padre */
   z-index: 1;
   text-align: center;
-  /* background-color: red; */
-  width: 400px;
-  height: 400px;
+  max-width: 90%; /* Usar max-width en lugar de width fijo */
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  gap: 1rem; /* Usar rem en lugar de px */
+  padding: 2rem; /* Agregar padding para espaciado interno */
 }
 
 .content p,
@@ -59,31 +56,31 @@
 }
 
 .content h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+  font-size: clamp(1.2rem, 3vw, 1.8rem); /* Tamaño responsivo */
+  margin-bottom: 0.5rem;
 }
 
 .content p {
-  font-size: 25px;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem); /* Tamaño responsivo */
 }
 
 .divider {
-  width: 50px;
+  width: 3rem; /* Usar rem */
   height: 2px;
   background-color: #70228f;
-  margin: 10px 0;
+  margin: 0.5rem 0;
 }
 
 .get-started-button {
-  padding: 15px 25px;
-  font-size: 23px;
+  padding: 0.8rem 1.5rem; /* Usar rem */
+  font-size: clamp(1rem, 2.5vw, 1.2rem); /* Tamaño responsivo */
   border: none;
   border-radius: 5px;
   background-color: #734585;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 40px;
+  margin-top: 1.5rem;
 }
 
 .get-started-button:hover {
@@ -91,58 +88,56 @@
 }
 
 /* ProductList.css */
-
 .product-list-container {
   position: absolute;
   overflow-x: hidden;
   top: 100vh;
-  /* Initially off-screen */
   left: 0;
   width: 100%;
   height: 100vh;
   background-color: rgba(255, 255, 255, 0.9);
-  /* Adjust background opacity as needed */
   transition: top 0.5s ease;
-  /* Smooth transition for top property */
   overflow-y: auto;
-  /* Enable vertical scrolling */
   z-index: 2;
-  /* Ensure it's above landing page content */
   backdrop-filter: blur(5px);
 }
 
 .product-list-container.visible {
   top: 0;
 }
-/* LandingPage.css */
+
+/* Media Queries mejoradas */
 @media screen and (max-width: 768px) {
   .content {
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+    padding: 1rem;
   }
 
   .landing_content {
-    margin-top: 100px; /* Adjust as needed */
-    margin-left: 0;
-    width: 80%; /* Adjust as needed */
-    text-align: center;
+    gap: 0.8rem;
+    padding: 1.5rem;
   }
 
-  .aboutus_container {
-    margin-top: 20px; /* Adjust as needed */
-    width: 80%; /* Adjust as needed */
+  .content h1 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+
+  .content p {
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
   }
 }
 
 @media screen and (max-width: 480px) {
   .landing_content {
-    margin-top: 50px; /* Adjust as needed */
-    width: 90%; /* Adjust as needed */
+    padding: 1rem;
+    gap: 0.6rem;
   }
 
-  .aboutus_container {
-    width: 90%; /* Adjust as needed */
+  .get-started-button {
+    padding: 0.7rem 1.2rem;
+    font-size: clamp(0.9rem, 3vw, 1rem);
+  }
+
+  .divider {
+    width: 2.5rem;
   }
 }

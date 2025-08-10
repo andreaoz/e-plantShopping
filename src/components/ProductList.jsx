@@ -44,28 +44,6 @@ function ProductList(props) {
         }
     };
     console.log(filteredCategories);
-    
-    const styleObj = {
-        backgroundColor: '#59265fa9',
-        color: '#fff!important',
-        padding: '15px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignIems: 'center',
-        fontSize: '20px',
-    }
-    const styleObjUl = {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '1100px',
-    }
-    const styleA = {
-        color: 'white',
-        fontSize: '30px',
-        textDecoration: 'none',
-        fontFamily: 'Book Antiqua'
-    }
 
    const handleCartClick = (e) => {
     e.preventDefault();
@@ -84,29 +62,29 @@ const handlePlantsClick = (e) => {
   };
     return (
         <div>
-             <div className="navbar" style={styleObj}>
+        <div className="navbar" >
             <div className="tag">
                 <div style={{cursor:"pointer"}} onClick={props.toLanding} className="luxury">
                     <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
                     <a   style={{textDecoration:'none'}}>
                     <div style={{marginLeft:"10px"}}>
-                        <h3 style={{color:'white'}}>Paradise Nursery</h3>
+                        <h3 className="tag_home_link" style={{color:'white'}}>Paradise Nursery</h3>
                         <i style={{color:'white'}}>Where Green Meets Serenity</i>
                     </div>
                     </a>
                 </div>
               
             </div>
-            <div style={styleObjUl}>
-                
-                <div> 
-                    <a href="#" onClick={(e)=>handlePlantsClick(e)} style={styleA}>
+
+                <div className='nav-text-place'> 
+                    <a href="#" onClick={(e)=>handlePlantsClick(e)} className='nav-text'>
                         Find Your Perfect Plant!
                     </a>
                 </div>
 
+            <div>
                 <div> 
-                    <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}>
+                    <a href="#" onClick={(e) => handleCartClick(e)} >
                         <div className='shopping-section'>    
                             <div className="cart_quantity_count">
                                 {totalItems()}

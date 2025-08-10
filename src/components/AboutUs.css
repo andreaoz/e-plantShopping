@@ -1,33 +1,86 @@
 .about-us-container {
-    width: 1000px;
-    /* margin: 0 auto; */
-    /* padding: 20px; */
-    /* background-color: red; */
-    text-align: justify;
-  }
-  
-  .about-us-heading {
-    font-size: 32px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .about-us-description {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 30px;
-    text-align: center;
-  }
-  
-  .about-us-content {
-    font-size: 22px;
-    margin-bottom: 20px;
-  }
-  .plant_logo_right{
-    text-align: right;
+  max-width: 90%; /* Cambiar de width fijo a max-width */
+  width: 100%;
+  margin: 0 auto; /* Centrar el contenedor */
+  padding: 2rem; /* Agregar padding responsivo */
+  text-align: justify;
+}
+
+.about-us-heading {
+  font-size: clamp(1.5rem, 4vw, 2rem); /* Tamaño responsivo */
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.25rem; /* Usar rem */
+  text-align: center; /* Centrar el título */
+}
+
+.about-us-description {
+  font-size: clamp(1rem, 2.5vw, 1.125rem); /* Tamaño responsivo */
+  color: #666;
+  margin-bottom: 1.875rem; /* Usar rem */
+  text-align: center;
+  line-height: 1.6; /* Mejorar legibilidad */
+}
+
+.about-us-content {
+  font-size: clamp(1.125rem, 3vw, 1.375rem); /* Tamaño responsivo */
+  margin-bottom: 1.25rem; /* Usar rem */
+  line-height: 1.5; /* Mejorar legibilidad */
+  color: #444; /* Mejor contraste */
+}
+
+.plant_logo_right {
+  text-align: right;
+}
+
+.plant_logo_left {
+  text-align: left;
+}
+
+/* Media Queries para About Us */
+@media screen and (max-width: 768px) {
+  .about-us-container {
+    max-width: 95%;
+    padding: 1.5rem;
+    text-align: left; /* Cambiar a left en móviles para mejor legibilidad */
   }
 
-  .plant_logo_left{
-    text-align: left;
+  .about-us-heading {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+    margin-bottom: 1rem;
   }
+
+  .about-us-description {
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-us-content {
+    font-size: clamp(1rem, 3.5vw, 1.25rem);
+    margin-bottom: 1rem;
+  }
+
+  .plant_logo_right,
+  .plant_logo_left {
+    text-align: center; /* Centrar logos en móviles */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-us-container {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .about-us-heading {
+    font-size: clamp(1.125rem, 6vw, 1.5rem);
+  }
+
+  .about-us-description {
+    font-size: clamp(0.875rem, 4vw, 1rem);
+  }
+
+  .about-us-content {
+    font-size: clamp(0.95rem, 4vw, 1.125rem);
+  }
+}
