@@ -1,4 +1,4 @@
-# Paradise Nursery - Shopping App (Frontend)
+# Paradise Nursery Shopping App (Frontend)
 
 This project is the **frontend** of a shopping application called **Paradise Nursery**, developed as part of the **IBM Full Stack Professional Certificate**.
 
